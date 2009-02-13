@@ -52,6 +52,8 @@ genhtml \- Generate HTML view from LCOV coverage data files
 .RB [ \-\-function\-coverage ]
 .RB [ \-\-no\-function\-coverage ]
 .br
+.RB [ \-\-demangle\-cpp ]
+.br
 .IR tracefile(s)
 .RE
 .SH DESCRIPTION
@@ -369,7 +371,6 @@ option
 .RE
 .BI "\-\-html\-extension " extension
 .RS
-
 Use customized filename extension for generated HTML pages.
 
 This option is useful in situations where different filename extensions
@@ -384,7 +385,6 @@ option
 
 .B \-\-html\-gzip
 .RS
-
 Compress all generated html files with gzip and add a .htaccess file specifying
 gzip\-encoding in the root output directory.
 
@@ -438,6 +438,15 @@ option
 .IR genhtml_function_coverage .
 
 .RE
+.B \-\-demangle\-cpp
+.RS
+Specify whether to demangle C++ function names.
+
+Use this option if you want to convert C++ internal function names to
+human readable format for display on the HTML function overview page.
+This option requires that the c++filt tool is installed (see
+.BR c++filt (1)).
+
 .SH FILES
 
 .I /etc/lcovrc
